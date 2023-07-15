@@ -1,8 +1,5 @@
 <div *ngIf="authService.isAuthenticated()">
   <nav>
-    <!-- Include navigation links for authenticated users -->
-    <a routerLink="/functionality-list">Functionality List</a>
-    <a routerLink="/kanban">Kanban</a>
     <button (click)="logout()">Logout</button>
   </nav>
   <router-outlet></router-outlet>
