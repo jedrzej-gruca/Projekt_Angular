@@ -1,0 +1,29 @@
+<h2>Functionalities</h2>
+
+<div *ngIf="functionalities.length === 0">
+  <p>No functionalities found.</p>
+</div>
+
+<div class="functionality-tiles">
+  <div class="functionality-tile" *ngFor="let functionality of functionalities">
+      <strong>{{ functionality.name }}</strong>
+      <p><strong>ID:</strong> {{ functionality.id }}</p>
+      <p><strong>Tasks:</strong> {{ functionality.noOfTasks }}</p>
+      <button (click)="editFunctionality(functionality)">Edit</button>
+      <button (click)="deleteFunctionality(functionality)">Delete</button>
+      <button (click)="navigateToKanban(functionality.id)">View Kanban</button>
+  </div>
+</div>
+
+<button (click)="createFunctionality()">Create Functionality</button>
+
+<div *ngIf="selectedFunctionality">
+  <h3>{{ isNewFunctionality ? 'Create Functionality' : 'Edit Functionality' }}</h3>
+  <form (ngSubmit)="saveFunctionality()">
+    <div>
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="selectedFunctionality.name" name="functionalityName" required>
+    </div>
+    <button type="submit">{{ isNewFunctionality ? 'Create' : 'Save' }}</button>
+  </form>
+</div>
