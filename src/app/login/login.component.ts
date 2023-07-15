@@ -17,11 +17,10 @@ export class LoginComponent {
   login(): void {
     const isAuthenticated = this.authService.login(this.username, this.password);
     if (isAuthenticated) {
-      // Redirect to the desired page after successful login
-      // Example: Redirect to the functionality list page
+
       this.router.navigate(['/functionalities']);
     } else {
-      // Handle invalid credentials
+      // TODO: Handle invalid credentials
     }
   }
 }

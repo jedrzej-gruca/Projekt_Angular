@@ -187,7 +187,7 @@ export class TaskKanbanComponent {
         this.tasks[index].name = this.selectedTaskName;
         this.tasks[index].status = this.selectedTaskStatus;
 
-        // If the task is associated with a functionality, update the corresponding functionality's task as well
+        // If the task is associated with a functionality, update the corresponding functionalities task as well
         if (this.selectedTask.functionalityId !== null) {
           const functionality = this.functionalities.find(f => f.id === this.selectedTask?.functionalityId);
           if (functionality && functionality.tasks) {
