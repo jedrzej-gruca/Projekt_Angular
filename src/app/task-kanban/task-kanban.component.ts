@@ -131,21 +131,22 @@ export class TaskKanbanComponent {
       status: 'todo',
       functionalityId: functionalityId || null
     };
-    this.tasks.push(newTask);
 
-    if (functionalityId) {
-      const functionality = this.functionalities.find(f => f.id === functionalityId);
-      if (functionality) {
-        functionality.tasks = functionality.tasks || [];
-        functionality.tasks.push(newTask); // Add the new task to functionality tasks
-        const index = this.functionalities.findIndex(f => f.id === functionalityId);
-        if (index !== -1) {
-          this.functionalities[index].noOfTasks += 1;
+      this.tasks.push(newTask);
+
+      if (functionalityId) {
+        const functionality = this.functionalities.find(f => f.id === functionalityId);
+        if (functionality) {
+          functionality.tasks = functionality.tasks || [];
+          functionality.tasks.push(newTask); // Add the new task to functionality tasks
+          const index = this.functionalities.findIndex(f => f.id === functionalityId);
+          if (index !== -1) {
+            this.functionalities[index].noOfTasks += 1;
+          }
         }
       }
-    }
-    this.saveFunctionalitiesToLocalStorage();
-    this.saveTasksToLocalStorage();
+      this.saveFunctionalitiesToLocalStorage();
+      this.saveTasksToLocalStorage();
   }
 
 

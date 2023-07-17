@@ -13,13 +13,11 @@
         </div>
       </div>
     </div>
-    <button *ngIf="selectedFunctionalityId" (click)="createTask(selectedFunctionalityId)">Add Task</button>
   </div>
 
   <div class="kanban-column">
     <h3>In Progress</h3>
     <div class="kanban-dropzone" (drop)="onDrop($event, 'inProgress')" (dragover)="onDragOver($event)">
-<!--      <div class="kanban-task" *ngFor="let task of getTasksByFunctionalityAndStatus(selectedFunctionalityId ?? undefined, 'inProgress')" draggable="true" (dragstart)="onDragStart($event, task)">-->
       <div class="kanban-task" *ngFor="let task of filterTasksByFunctionality('inProgress')" draggable="true" (dragstart)="onDragStart($event, task)">
         {{ task.name }}
         <div class="task-actions">
@@ -28,13 +26,11 @@
         </div>
       </div>
     </div>
-    <button *ngIf="selectedFunctionalityId" (click)="createTask(selectedFunctionalityId)">Add Task</button>
   </div>
 
   <div class="kanban-column">
     <h3>Done</h3>
     <div class="kanban-dropzone" (drop)="onDrop($event, 'done')" (dragover)="onDragOver($event)">
-<!--      <div class="kanban-task" *ngFor="let task of getTasksByFunctionalityAndStatus(selectedFunctionalityId ?? undefined, 'done')" draggable="true" (dragstart)="onDragStart($event, task)">-->
       <div class="kanban-task" *ngFor="let task of filterTasksByFunctionality('done')" draggable="true" (dragstart)="onDragStart($event, task)">
         {{ task.name }}
         <div class="task-actions">
@@ -43,8 +39,8 @@
         </div>
       </div>
     </div>
-    <button *ngIf="selectedFunctionalityId" (click)="createTask(selectedFunctionalityId)">Add Task</button>
   </div>
+  <button *ngIf="selectedFunctionalityId" (click)="createTask(selectedFunctionalityId)">Add Task</button>
   <button (click)="goBack()">Go Back</button>
 </div>
 

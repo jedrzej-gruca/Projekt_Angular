@@ -6,6 +6,7 @@ import {AuthGuard} from "./services/auth.guard";
 import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/functionalities', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'functionalities', component: FunctionalityListComponent, canActivate: [AuthGuard] },
   { path: 'kanban/:functionalityId', component: TaskKanbanComponent, canActivate: [AuthGuard] },
